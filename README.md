@@ -2,7 +2,7 @@
 
 Projet 6 du cursus Développeur Javascript React proposé par [OpenClassrooms](https://openclassrooms.com/fr/).
 
-Lien : [Fisheye Website](https://h3lt3r-sk3lt3r.github.io/P6-Front-End-Fisheye/)
+Lien : [Fisheye Website](https://h3lt3r-sk3lt3r.github.io/P6-OCR-Front-End-Fisheye/)
 
 ## Fabriqué avec
 
