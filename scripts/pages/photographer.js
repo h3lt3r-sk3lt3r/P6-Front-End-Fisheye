@@ -21,7 +21,7 @@ async function displayData(photographers) {
 
   const photographersProfile = photographerProfileFactory(profile);
   const userCardDOM = photographersProfile.getUserCardDOM();
-  photographersHeader.appendChild(userCardDOM);
+  //photographersHeader.appendChild(userCardDOM);
 }
 
 async function init() {

@@ -39,13 +39,22 @@ h1 {
   flex-direction: column;
 }
 
-.photographer_section article h2 {
+.photographer_section a {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.photographer_section a h2 {
   color: #D3573C;
   font-size: 36px;
   margin-bottom: 0;
+  font-weight: 400;
 }
 
-.photographer_section article img {
+.photographer_section a img {
   height: 200px;
   width: 200px;
   border-radius: 50%;
@@ -56,10 +65,10 @@ h1 {
   margin: 2px 0px;
 }
 
-.photographer_section article :nth-child(3n) {
+.photographer_section article p:nth-of-type(1) {
   color: #901C1C;
 }
 
-.photographer_section article :nth-child(5n) {
+.photographer_section article :nth-child(4) {
   opacity: 50%;
 }

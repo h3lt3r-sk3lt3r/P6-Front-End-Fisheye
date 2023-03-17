@@ -2,10 +2,40 @@
   display: none;
 }
 
-.photograph-header {
+.photographer_header {
   background-color: #FAFAFA;
   height: 300px;
   margin: 0 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+}
+
+.photographer_header h2 {
+  color: #d3573c;
+  font-size: 70px;
+  margin-bottom: 0;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+.photographer_header p:nth-of-type(1) {
+  color: #901C1C;
+  font-size: 25px;
+  margin: 0;
+}
+
+.photographer_header p:nth-of-type(2) {
+  opacity: 60%;
+  margin-bottom: 0;
+}
+
+.photographer_header img {
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .contact_button {
