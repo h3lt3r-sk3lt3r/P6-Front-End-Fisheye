@@ -4,7 +4,8 @@ function photographerProfileFactory(data) {
   const picture = `assets/photographers/${portrait}`;
 
   function getUserCardDOM() {
-    infos = document.querySelector(".photographer_header");
+    infos = document.createElement("div");
+    infos.setAttribute("class", "infos")
     div = document.createElement("div");
 
     const userName = document.createElement("h2");

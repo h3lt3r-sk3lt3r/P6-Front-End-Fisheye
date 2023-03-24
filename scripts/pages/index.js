@@ -1,4 +1,4 @@
-let = photographerData = [];
+let photographerData = [];
 
 async function getPhotographers() {
   await fetch("data/photographers.json")
