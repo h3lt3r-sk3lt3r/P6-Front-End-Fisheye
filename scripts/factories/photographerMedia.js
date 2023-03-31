@@ -11,14 +11,14 @@ function photographerMediaFactory(data) {
     details = document.createElement("div");
     details.setAttribute("class", "details")
 
-    if (picture) {
+    if (image) {
       const mediaContent = document.createElement("img");
       mediaContent.setAttribute("src", picture);
-    }
-
-    if (movie) {
-      const mediaContent = document.createElement("img");
+      media.appendChild(mediaContent);
+    } else {
+      const mediaContent = document.createElement("video");
       mediaContent.setAttribute("src", movie);
+      media.appendChild(mediaContent);
     }
 
     const mediaTitle = document.createElement("h2");
@@ -27,7 +27,7 @@ function photographerMediaFactory(data) {
     const mediaLikes = document.createElement("p");
     mediaLikes.innerHTML = likes + " <i class='fa-solid fa-heart'></i>";
 
-    media.appendChild(mediaContent);
+    // media.appendChild(mediaContent);
     media.appendChild(details);
     details.appendChild(mediaTitle);
     details.appendChild(mediaLikes);
