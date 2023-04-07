@@ -1,38 +1,70 @@
-function photographerMediaFactory(data) {
-  const { photographerId, title, image, video, likes } = data;
+class Media {
+  constructor(data) {
+    this.photographerId = data.photographerId;
+    this.title = data.title;
+    this.likes = data.likes;
+  }
 
-  const picture = `assets/images/${image}`;
-  const movie = `assets/images/${video}`;
-
-  function getMediaCardDOM() {
-    media = document.createElement("div");
+  getMediaCardDOM() {
+    const media = document.createElement("div");
     media.setAttribute("class", "media");
 
-    details = document.createElement("div");
-    details.setAttribute("class", "details")
+    const details = document.createElement("div");
+    details.setAttribute("class", "details");
 
-    if (image) {
-      const mediaContent = document.createElement("img");
-      mediaContent.setAttribute("src", picture);
-      media.appendChild(mediaContent);
-    } else {
-      const mediaContent = document.createElement("video");
-      mediaContent.setAttribute("src", movie);
-      media.appendChild(mediaContent);
-    }
+    const mediaContent = this.getMediaContentDOM();
+    media.appendChild(mediaContent);
 
     const mediaTitle = document.createElement("h2");
-    mediaTitle.textContent = title;
+    mediaTitle.textContent = this.title;
 
     const mediaLikes = document.createElement("p");
-    mediaLikes.innerHTML = likes + " <i class='fa-solid fa-heart'></i>";
+    mediaLikes.innerHTML = this.likes + " <i class='fa-solid fa-heart'></i>";
 
-    // media.appendChild(mediaContent);
     media.appendChild(details);
     details.appendChild(mediaTitle);
     details.appendChild(mediaLikes);
 
     return media;
   }
-  return { photographerId, title, image, video, likes, getMediaCardDOM }
+
+  getMediaContentDOM() {
+    // Implementé dans les sous-classe
+  }
+}
+
+class ImageMedia extends Media {
+  constructor(data) {
+    super(data);
+    this.image = `assets/images/${data.image}`;
+  }
+
+  getMediaContentDOM() {
+    const mediaContent = document.createElement("img");
+    mediaContent.setAttribute("src", this.image);
+    return mediaContent;
+  }
+}
+
+class VideoMedia extends Media {
+  constructor(data) {
+    super(data);
+    this.video = `assets/images/${data.video}`;
+  }
+
+  getMediaContentDOM() {
+    const mediaContent = document.createElement("video");
+    mediaContent.setAttribute("src", this.video);
+    return mediaContent;
+  }
+}
+
+function photographerMediaFactory(data) {
+  const { photographerId, title, image, video, likes } = data;
+
+  if (image) {
+    return new ImageMedia(data);
+  } else {
+    return new VideoMedia(data);
+  }
 }
