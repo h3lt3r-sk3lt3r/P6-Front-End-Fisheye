@@ -144,3 +144,70 @@ form input {
   font-weight: 700;
   font-size: 20px;
 }
+
+.lightbox {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: white;
+}
+
+.lightbox .slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 850px;
+  width: 995px;
+  position: relative;
+}
+
+.lightbox .slider .fa-chevron_left, .lightbox .slider .fa-chevron_left {
+  font-size: 50px;
+  color: #901C1C;
+  cursor: pointer;
+}
+
+.lightbox .slider img, .lightbox .slider video {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  margin: 0 40px;
+  border-radius: 5px;
+}
+
+.lightboxMedia {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.lightbox .slider .fa-xmark {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 50px;
+  color: #901C1C;
+  cursor: pointer;
+}
+
+.lightbox .div-title {
+  display: flex;
+  justify-content: center;
+  text-align: start;
+  width: 100%;
+}
+
+.lightbox .div-title h2 {
+  color: #901C1C;
+  margin: 0;
+  margin-top: 30px;
+  width: 855px;
+}
