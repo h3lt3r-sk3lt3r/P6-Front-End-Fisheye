@@ -1,4 +1,4 @@
-//Mettre le code JavaScript lié à la page photographer.html
+// Mettre le code JavaScript lié à la page photographer.html
 
 let photographerData = [];
 let photographerMedia = [];
@@ -46,113 +46,124 @@ async function displayMedia(photographers) {
     const photographerMedia = photographerMediaFactory(media);
     const mediaCardDOM = photographerMedia.getMediaCardDOM();
     mediaCardDOM.addEventListener("click", () =>
-      showLightbox(mediaCardDOM.children[0])
+      clickLightbox(mediaCardDOM.children[0])
     );
     photographersPortfolio.appendChild(mediaCardDOM);
-  })
+  });
+
+  const lightbox = document.querySelector(".lightbox");
+  const lightboxMedia = document.querySelector(".lightboxMedia");
+  const lightboxTitle = document.querySelector(".title");
+
+  const clickLightbox = (element) => {
+    const lightboxTitleLink = element.nextSibling.firstChild;
+    lightboxTitle.textContent = lightboxTitleLink.textContent;
+    const mediaLightboxLink = element.src;
+
+    if (mediaLightboxLink.includes(".jpg")) {
+      const img = document.createElement("img");
+      img.src = mediaLightboxLink;
+      img.dataset.id = element.dataset.id;
+      lightboxMedia.appendChild(img);
+    } else if (mediaLightboxLink.includes(".mp4")) {
+      const video = document.createElement("video");
+      video.src = mediaLightboxLink;
+      video.controls = true;
+      video.dataset.id = element.dataset.id;
+      lightboxMedia.appendChild(video);
+    }
+    lightbox.style.display = "flex";
+  };
+
+  const previous = () => {
+    const lightboxMedia = document.querySelector(".lightboxMedia");
+    const lightboxMediaChild = lightboxMedia.firstElementChild;
+    const currentMediaId = parseInt(lightboxMediaChild.dataset.id, 10);
+    const currentMediaIndex = portfolio.findIndex((element) => element.id === currentMediaId);
+    const previousMediaIndex = (currentMediaIndex + portfolio.length - 1) % portfolio.length;
+    const previousMedia = portfolio[previousMediaIndex];
+
+    if (previousMedia.image) {
+      const newImage = previousMedia.image;
+      const picture = `assets/images/${newImage}`;
+      const img = document.createElement("img");
+      img.src = picture;
+      img.dataset.id = previousMedia.id;
+
+      lightboxMedia.innerHTML = "";
+      lightboxMedia.appendChild(img);
+      lightboxTitle.textContent = previousMedia.title;
+    } else if (previousMedia.video) {
+      const newVideo = previousMedia.video;
+      const movie = `assets/images/${newVideo}`;
+      const video = document.createElement("video");
+      video.src = movie;
+      video.setAttribute("controls", "");
+      video.dataset.id = previousMedia.id;
+
+      lightboxMedia.innerHTML = "";
+      lightboxMedia.appendChild(video);
+    }
+  };
+
+  const next = () => {
+    const lightboxMedia = document.querySelector(".lightboxMedia");
+    const lightboxMediaChild = lightboxMedia.firstElementChild;
+
+    const result = portfolio.find(
+      (element) => element.id === parseInt(lightboxMediaChild.dataset.id, 10)
+    );
+
+    let i = portfolio.indexOf(result);
+
+    if (i === portfolio.length - 1) {
+      i = -1;
+    }
+    const nextMedia = portfolio[i + 1];
+
+    if (nextMedia.image) {
+      const newImage = nextMedia.image;
+      const picture = `assets/images/${newImage}`;
+      const img = document.createElement("img");
+      img.setAttribute("src", picture);
+      img.dataset.id = portfolio[i + 1].id;
+
+      lightboxMedia.innerHTML = "";
+      lightboxMedia.appendChild(img);
+      lightboxTitle.textContent = nextMedia.title;
+    } else if (nextMedia.video) {
+      const newVideo = nextMedia.video;
+      const movie = `assets/images/${newVideo}`;
+      const videoDisplay = document.createElement("video");
+      videoDisplay.setAttribute("src", movie);
+      videoDisplay.setAttribute("controls", "");
+      videoDisplay.dataset.id = portfolio[i + 1].id;
+
+      lightboxMedia.innerHTML = "";
+      lightboxMedia.appendChild(videoDisplay);
+    }
+
+    lightboxMediaChild =
+      document.querySelector(".lightboxMedia").firstElementChild;
+  };
+
+  document.getElementById("previous").addEventListener("click", () => {
+    previous();
+  });
+
+  document.getElementById("next").addEventListener("click", () => {
+    next();
+  });
+
+  function closeLightbox() {
+    lightbox.style.display = "none";
+    lightboxMedia.innerHTML = "";
+  }
+
+  document.getElementById("close").addEventListener("click", () => {
+    closeLightbox();
+  });
 }
-
-// Fonction utilitaire pour créer une image ou une vidéo
-const createMediaElement = (type, src, id) => {
-  const media = document.createElement(type);
-  media.setAttribute("src", src);
-  media.setAttribute("controls", type === "video" ? "" : null);
-  media.dataset.id = id;
-  return media;
-};
-
-// Récupérer les éléments DOM
-const lightbox = document.querySelector(".lightbox");
-const lightboxMedia = document.querySelector(".lightboxMedia");
-const lightboxTitle = document.querySelector(".title");
-const prevButton = document.getElementById("previous");
-const nextButton = document.getElementById("next");
-const closeButton = document.getElementById("close");
-
-// Fonction pour afficher la lightbox
-const showLightbox = (element) => {
-  const lightboxTitleLink = element.nextSibling.firstChild;
-  lightboxTitle.textContent = lightboxTitleLink.textContent;
-
-  const mediaLightboxLink = element.src;
-
-  if (mediaLightboxLink.includes(".jpg")) {
-    const img = createMediaElement(
-      "img",
-      mediaLightboxLink,
-      element.dataset.id
-    );
-    lightboxMedia.appendChild(img);
-  }
-
-  if (mediaLightboxLink.includes(".mp4")) {
-    const video = createMediaElement(
-      "video",
-      mediaLightboxLink,
-      element.dataset.id
-    );
-    lightboxMedia.appendChild(video);
-  }
-
-  lightbox.style.display = "flex";
-};
-
-// Fonction pour afficher le média précédent
-const showPreviousMedia = () => {
-  const lightboxMediaChild = lightboxMedia.firstElementChild;
-  const currentMedia = portfolio.find(
-    (element) => element.id === parseInt(lightboxMediaChild.dataset.id, 10)
-  );
-  const currentIndex = portfolio.indexOf(currentMedia);
-  const prevIndex = currentIndex === 0 ? portfolio.length - 1 : currentIndex - 1;
-  const prevMedia = portfolio[prevIndex];
-
-  if (prevMedia.image) {
-    const picture = `assets/media/${prevMedia.image}`;
-    const img = createMediaElement("img", picture, prevMedia.id);
-    lightboxMedia.innerHTML = "";
-    lightboxMedia.appendChild(img);
-    lightboxTitle.textContent = prevMedia.title;
-  }
-
-  if (prevMedia.video) {
-    const movie = `assets/media/${prevMedia.video}`;
-    const videoDisplay = createMediaElement("video", movie, prevMedia.id);
-    lightboxMedia.innerHTML = "";
-    lightboxMedia.appendChild(videoDisplay);
-  }
-};
-
-// Fonction pour afficher le média suivant
-const showNextMedia = () => {
-  const lightboxMediaChild = lightboxMedia.firstElementChild;
-  const currentMedia = portfolio.find(
-    (element) => element.id === parseInt(lightboxMediaChild.dataset.id, 10)
-  );
-  const currentIndex = portfolio.indexOf(currentMedia);
-  const nextIndex = currentIndex === portfolio.length - 1 ? 0 : currentIndex + 1;
-  const nextMedia = portfolio[nextIndex];
-
-  if (nextMedia.image) {
-    const picture = `assets/media/${nextMedia.image}`;
-    const img = createMediaElement("img", picture, nextMedia.id);
-    lightboxMedia.innerHTML = "";
-    lightboxMedia.appendChild(img);
-    lightboxTitle.textContent = nextMedia.title;
-  }
-
-  if (nextMedia.video) {
-    const movie = `assets/media/${nextMedia.video}`;
-    const videoDisplay = createMediaElement("video", movie, nextMedia.id);
-    lightboxMedia.innerHTML = "";
-    lightboxMedia.appendChild(videoDisplay);
-  }
-};
-
-// Écouter les événements de clic
-prevButton.addEventListener("click", showPreviousMedia);
-nextButton
-
 
 async function init() {
   const { photographers } = await getPhotographers();

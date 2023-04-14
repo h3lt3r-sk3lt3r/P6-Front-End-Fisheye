@@ -4,7 +4,7 @@
 
 .photographer_header .infos {
   background-color: #FAFAFA;
-  height: 300px;
+  height: 270px;
   margin: 0 100px;
   display: flex;
   justify-content: space-between;
@@ -106,11 +106,16 @@ form input {
 }
 
 .photographer_portfolio {
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(auto-fill, 450px);
   grid-row-gap: 20px;
   justify-content: space-between;
+  margin: 80px 100px; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 80px;
   margin: 80px 100px;
+  grid-auto-rows: minmax(350px, auto);
 }
 
 .photographer_portfolio .media {
@@ -129,9 +134,10 @@ form input {
   color: #901C1C;
 }
 
-.photographer_portfolio img, .photographer_portfolio video {
+.photographer_portfolio img,
+.photographer_portfolio video {
   width: 100%;
-  height: 400px;
+  height: 325px;
   object-fit: cover;
   border-radius: 5px;
 }
@@ -146,53 +152,61 @@ form input {
 }
 
 .lightbox {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  /*flex-direction: column;*/
+  justify-content: space-evenly;
   align-items: center;
   display: none;
   position: fixed;
   top: 0;
   left: 0;
   background: white;
+  flex-wrap: wrap;
 }
 
-.lightbox .slider {
+/* .lightbox .slider {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 850px;
   width: 995px;
   position: relative;
-}
+} */
 
-.lightbox .slider .fa-chevron_left, .lightbox .slider .fa-chevron_left {
+.lightbox .fa-chevron-left {
   font-size: 50px;
   color: #901C1C;
   cursor: pointer;
 }
 
-.lightbox .slider img, .lightbox .slider video {
-  object-fit: cover;
-  height: 100%;
-  width: 100%;
-  margin: 0 40px;
-  border-radius: 5px;
+.lightbox .fa-chevron-right {
+  font-size: 50px;
+  color: #901C1C;
+  cursor: pointer;
+}
+
+.lightbox img,
+.lightbox video {
+  max-height: 100%;
+  object-fit: contain;
+  max-width: 100%;
+  object-position: center;
 }
 
 .lightboxMedia {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100%;
+  align-content: center;
+  max-height: 90%;
+  width: 80%;
 }
 
-.lightbox .slider .fa-xmark {
+.lightbox .fa-xmark {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 15px;
+  right: 50px;
   font-size: 50px;
   color: #901C1C;
   cursor: pointer;
@@ -208,6 +222,6 @@ form input {
 .lightbox .div-title h2 {
   color: #901C1C;
   margin: 0;
-  margin-top: 30px;
+  /* margin-top: 30px; */
   width: 855px;
 }
