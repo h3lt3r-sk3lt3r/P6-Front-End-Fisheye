@@ -19,12 +19,26 @@ class Media {
     const mediaTitle = document.createElement("h2");
     mediaTitle.textContent = this.title;
 
+    const blockLikes = document.createElement("p");
+    blockLikes.setAttribute("class", "likes");
+
     const mediaLikes = document.createElement("p");
-    mediaLikes.innerHTML = this.likes + " <i class='fa-solid fa-heart'></i>";
+    //mediaLikes.innerHTML = this.likes + " <i class='fa-solid fa-heart'></i>";
+    mediaLikes.innerHTML = this.likes;
+
+    const heartLikes = document.createElement("i");
+    heartLikes.setAttribute("class", "fa-solid fa-heart");
+
+    // media.appendChild(details);
+    // details.appendChild(mediaTitle);
+    // details.appendChild(mediaLikes);
 
     media.appendChild(details);
     details.appendChild(mediaTitle);
-    details.appendChild(mediaLikes);
+    details.appendChild(blockLikes);
+
+    blockLikes.appendChild(mediaLikes);
+    blockLikes.appendChild(heartLikes);
 
     return media;
   }

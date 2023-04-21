@@ -177,6 +177,23 @@ form button {
   font-size: 20px;
 }
 
+.photographer_portfolio .details p.likes {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 80px;
+  margin: 0;
+}
+
+.photographer_portfolio .details .fa-heart {
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.liked {
+  color: #DB8876;
+}
+
 .lightbox {
   height: 100%;
   width: 100%;
@@ -250,4 +267,27 @@ form button {
   margin: 0;
   /* margin-top: 30px; */
   width: 855px;
+}
+
+.totalLikes-bar {
+  position: fixed;
+  bottom: 0;
+  right: 50px;
+  background: #DB8876;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  font-size: 24px;
+  border-radius: 5px 5px 0 0;
+  padding: 0 30px;
+}
+
+.totalLikes-bar .likes-bar {
+  display: flex;
+  align-items: center;
+}
+
+.totalLikes-bar .likes-bar .totalLikes {
+  margin-right: 5px;
 }
