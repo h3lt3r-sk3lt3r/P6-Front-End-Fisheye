@@ -35,6 +35,9 @@ function photographerProfileFactory(data) {
     infos.appendChild(button);
     infos.appendChild(userPortrait);
 
+    const contact = document.getElementById("contact_me");
+    contact.innerHTML = "Contactez-moi<br>" + name;
+
     return infos;
   }
   return { name, picture, city, country, tagline, price, getUserCardDOM }

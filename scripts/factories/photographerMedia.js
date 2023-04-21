@@ -30,7 +30,7 @@ class Media {
   }
 
   getMediaContentDOM() {
-    // Implementé dans les sous-classe
+    // Implementé dans les sous-classes
   }
 }
 

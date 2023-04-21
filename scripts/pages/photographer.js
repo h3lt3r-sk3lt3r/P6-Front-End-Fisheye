@@ -103,6 +103,7 @@ async function displayMedia(photographers) {
 
       lightboxMedia.innerHTML = "";
       lightboxMedia.appendChild(video);
+      lightboxTitle.textContent = previousMedia.title;
     }
   };
 
