@@ -18,6 +18,30 @@
 
     <main id="main">
       <div class="photographer_header"></div>
+
+      <div class="sort-button">
+        <label>Trier par</label>
+        <button class="list" id="list">
+          <div class="list-button">
+            <p id="selected"></p>
+            <div id="list-arrow">
+              <div class="fa-solid fa-chevron-down"></div>
+            </div>
+          </div>
+          <ul class="list-ul" id="list-ul">
+            <li class="list-li" id="popularity">
+              Popularité
+            </li>
+            <li class="list-li" id="date">
+              Date
+            </li>
+            <li class="list-li" id="title">
+              Titre
+            </li>
+          </ul>
+        </button>
+      </div>
+
       <div class="photographer_portfolio"></div>
     </main>
 
@@ -33,7 +57,7 @@
       </div>
     </div>
 
-    <div id="contact_modal">
+    <div id="contact_modal" role="dialog" aria-labelledby="contact_me" aria-modal="true" aria-hidden="true">
 			<div class="modal">
 				<header>
           <h2 id="contact_me"></h2>
@@ -42,13 +66,13 @@
 				<form>
 					<div>
 						<label for="firstname">Prénom</label>
-						<input class="contact_input" id="firstname" name="firstname" type="text">
+						<input class="contact_input" id="firstname" name="firstname" type="text" aria-label="First name" placeholder="Jane">
             <label for="lastname">Nom</label>
-            <input class="contact_input" id="lastname" name="lastname" type="text">
+            <input class="contact_input" id="lastname" name="lastname" type="text" aria-label="Last name" placeholder="Doe">
             <label for="lastname">Email</label>
-            <input class="contact_input" id="email" name="email" type="email">
+            <input class="contact_input" id="email" name="email" type="email" aria-label="Email" placeholder="janedoe@email.com">
             <label for="lastname">Votre message</label>
-            <textarea class="contact_input" id="message" name="message"></textarea>
+            <textarea class="contact_input" id="message" name="message" aria-label="Your message" placeholder="Bonjour, seriez-vous disponible pour échanger au sujet d'une future collaboration ? Merci"></textarea>
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>

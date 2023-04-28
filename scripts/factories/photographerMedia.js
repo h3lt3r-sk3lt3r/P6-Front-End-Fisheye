@@ -9,6 +9,7 @@ class Media {
   getMediaCardDOM() {
     const media = document.createElement("div");
     media.setAttribute("class", "media");
+    media.setAttribute("id", this.id)
 
     const details = document.createElement("div");
     details.setAttribute("class", "details");
@@ -23,15 +24,10 @@ class Media {
     blockLikes.setAttribute("class", "likes");
 
     const mediaLikes = document.createElement("p");
-    //mediaLikes.innerHTML = this.likes + " <i class='fa-solid fa-heart'></i>";
     mediaLikes.innerHTML = this.likes;
 
     const heartLikes = document.createElement("i");
     heartLikes.setAttribute("class", "fa-solid fa-heart");
-
-    // media.appendChild(details);
-    // details.appendChild(mediaTitle);
-    // details.appendChild(mediaLikes);
 
     media.appendChild(details);
     details.appendChild(mediaTitle);

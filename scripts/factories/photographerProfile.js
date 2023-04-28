@@ -17,16 +17,13 @@ function photographerProfileFactory(data) {
     const userTagline = document.createElement("p");
     userTagline.textContent = tagline;
 
-    const button = document.createElement("button");
-    button.textContent = "Contactez-moi";
-    button.setAttribute("class", "contact_button");
-    button.setAttribute("onclick", "displayModal()")
+    const contactButton = document.createElement("button");
+    contactButton.textContent = "Contactez-moi";
+    contactButton.setAttribute("class", "contact_button");
+    contactButton.setAttribute("onclick", "displayModal()")
 
     const userPortrait = document.createElement("img");
     userPortrait.setAttribute("src", picture);
-
-    // const userPrice = document.createElement("p");
-    // userPrice.textContent = price + "€/jour";
 
     totalLikesBar = document.querySelector(".totalLikes-bar");
     const userPrice = document.querySelector(".price");
@@ -37,7 +34,7 @@ function photographerProfileFactory(data) {
     div.appendChild(userName);
     div.appendChild(userLocation);
     div.appendChild(userTagline);
-    infos.appendChild(button);
+    infos.appendChild(contactButton);
     infos.appendChild(userPortrait);
 
     const contact = document.getElementById("contact_me");
