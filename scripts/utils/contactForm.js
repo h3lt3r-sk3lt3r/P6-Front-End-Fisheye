@@ -11,6 +11,12 @@ function closeModal() {
   body.style.position = null;
 }
 
+document.getElementById("contact_close").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    closeModal();
+  }
+})
+
 const inputs = document.querySelectorAll(".contact_input");
 const contact_modal = document.getElementById("contact_modal");
 

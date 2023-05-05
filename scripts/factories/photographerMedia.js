@@ -56,7 +56,7 @@ class ImageMedia extends Media {
     const mediaContent = document.createElement("img");
     mediaContent.setAttribute("src", this.image);
     mediaContent.dataset.id = this.id;
-    mediaContent.setAttribute("class", "media-img");
+    mediaContent.setAttribute("class", "medias-portfolio");
     mediaContent.setAttribute("alt", this.title + ", closeup view");
     mediaContent.setAttribute("tabindex", "0")
     return mediaContent;
@@ -73,6 +73,7 @@ class VideoMedia extends Media {
     const mediaContent = document.createElement("video");
     mediaContent.setAttribute("src", this.video);
     mediaContent.dataset.id = this.id;
+    mediaContent.setAttribute("class", "medias-portfolio");
     mediaContent.setAttribute("aria-label", this.title + ", closeup view");
     mediaContent.setAttribute("tabindex", "0")
     return mediaContent;

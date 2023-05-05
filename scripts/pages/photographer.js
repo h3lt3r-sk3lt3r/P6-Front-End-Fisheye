@@ -48,6 +48,11 @@ async function displayMedia() {
     mediaCardDOM.children[0].addEventListener("click", () =>
       clickLightbox(mediaCardDOM.children[0])
     );
+    mediaCardDOM.children[0].addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        clickLightbox(mediaCardDOM.children[0]);
+      }
+    });
     photographersPortfolio.appendChild(mediaCardDOM);
   });
 
@@ -74,6 +79,8 @@ async function displayMedia() {
       lightboxMedia.appendChild(video);
     }
     lightbox.style.display = "flex";
+    lightbox.setAttribute("aria-hidden", "false");
+    lightbox.focus();
     main.style.position = "fixed";
   };
 
@@ -154,9 +161,21 @@ async function displayMedia() {
     previous();
   });
 
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") {
+      previous();
+    }
+  })
+
   document.getElementById("next").addEventListener("click", () => {
     next();
   });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") {
+      next();
+    }
+  })
 
   function closeLightbox() {
     main.style.position = null;
@@ -167,6 +186,12 @@ async function displayMedia() {
   document.getElementById("close").addEventListener("click", () => {
     closeLightbox();
   });
+
+  document.getElementById("close").addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      closeLightbox();
+    }
+  })
 
   const hearts = document.querySelectorAll(".fa-heart");
 
@@ -179,7 +204,7 @@ async function displayMedia() {
   const totalLikesBar = document.querySelector(".totalLikes");
   totalLikesBar.textContent = totalLikes;
 
-  const LikeFunction = (element) => {
+  const likeFunction = (element) => {
     const numberLike = element.previousSibling;
     const result = numberLike.classList.toggle("hearts");
     if (result) {
@@ -199,7 +224,15 @@ async function displayMedia() {
 
   hearts.forEach((element) => {
     element.addEventListener("click", () => {
-      LikeFunction(element);
+      likeFunction(element);
+    });
+  });
+
+  hearts.forEach((element) => {
+    element.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        likeFunction(element);
+      }
     });
   });
 
@@ -218,10 +251,12 @@ async function displayMedia() {
     ) {
       listUl.style.display = "block";
       arrow.classList.add("arrow-move");
+      list.setAttribute("aria-expanded", "true");
     } else {
       listUl.style.display = "none";
       list.focus();
       arrow.classList.remove("arrow-move");
+      list.setAttribute("aria-expanded", "false");
     }
   }
 
@@ -234,23 +269,29 @@ async function displayMedia() {
     if (selected.innerHTML == popularity.innerHTML) {
       popularity.classList.remove("list-li");
       popularity.innerHTML = "";
+      popularity.removeAttribute("tabindex", "0");
     } else {
       popularity.innerHTML = "Popularité";
       popularity.classList.add("list-li");
+      popularity.setAttribute("tabindex", "0");
     }
     if (selected.innerHTML === date.innerHTML) {
       date.classList.remove("list-li");
       date.innerHTML = "";
+      popularity.removeAttribute("tabindex", "0");
     } else {
       date.innerHTML = "Date";
       date.classList.add("list-li");
+      popularity.setAttribute("tabindex", "0");
     }
     if (selected.innerHTML === title.innerHTML) {
       title.classList.remove("list-li");
       title.innerHTML = "";
+      popularity.removeAttribute("tabindex", "0");
     } else {
       title.innerHTML = "Titre";
       title.classList.add("list-li");
+      popularity.setAttribute("tabindex", "0");
     }
   };
 
@@ -268,6 +309,12 @@ async function displayMedia() {
     sortByLike();
   });
 
+  popularity.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      sortByLike();
+    }
+  });
+
   function sortByDate() {
     selected.innerHTML = "Date";
     selectedChoiceHidden();
@@ -280,6 +327,12 @@ async function displayMedia() {
 
   date.addEventListener("click", () => {
     sortByDate();
+  });
+
+  date.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      sortByDate();
+    }
   });
 
   function sortByTitle() {
@@ -305,6 +358,12 @@ async function displayMedia() {
 
   title.addEventListener("click", () => {
     sortByTitle();
+  });
+
+  title.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      sortByTitle();
+    }
   });
 
   sortByLike();

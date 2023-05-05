@@ -166,6 +166,10 @@ form button {
   color: #901C1C;
 }
 
+.medias-portfolio {
+  cursor: pointer;
+}
+
 .photographer_portfolio img,
 .photographer_portfolio video {
   width: 100%;
