@@ -21,7 +21,7 @@ async function getMedias() {
   return photographerMedia;
 }
 
-async function displayData(photographers) {
+async function displayData() {
   const photographersHeader = document.querySelector(".photographer_header");
 
   const queryString = window.location.search;
@@ -34,7 +34,7 @@ async function displayData(photographers) {
   photographersHeader.appendChild(userCardDOM);
 }
 
-async function displayMedia(photographers) {
+async function displayMedia() {
   const photographersPortfolio = document.querySelector(".photographer_portfolio");
 
   const queryString = window.location.search;

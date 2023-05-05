@@ -1,15 +1,14 @@
+const modal = document.getElementById("contact_modal");
+const body = document.getElementById("body");
+
 function displayModal() {
-  const modal = document.getElementById("contact_modal");
-  const main = document.getElementById("main");
-  main.style.position ="fixed";
+  body.style.position ="fixed";
   modal.style.display = "block";
 }
 
 function closeModal() {
-  const modal = document.getElementById("contact_modal");
-  const main = document.getElementById("main");
   modal.style.display = "none";
-  main.style.position = null;
+  body.style.position = null;
 }
 
 const inputs = document.querySelectorAll(".contact_input");
@@ -21,7 +20,7 @@ let email;
 let message;
 
 inputs.forEach((input) => {
-  input.addEventListener("focusout", (e) => {
+  input.addEventListener("focusout", () => {
     if (input.name == "firstname")
       firstname = document.getElementById("firstname").value;
     if (input.name == "lastname")

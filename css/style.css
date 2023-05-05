@@ -39,6 +39,10 @@ h1 {
   flex-direction: column;
 }
 
+.photographer_section article div {
+  text-align: center;
+}
+
 .photographer_section a {
   text-decoration: none;
   display: flex;
@@ -61,14 +65,14 @@ h1 {
   object-fit: cover;
 }
 
-.photographer_section article p {
+.photographer_section article div p {
   margin: 2px 0px;
 }
 
-.photographer_section article p:nth-of-type(1) {
+.photographer_section article div p:nth-of-type(1) {
   color: #901C1C;
 }
 
-.photographer_section article :nth-child(4) {
+.photographer_section article div :nth-child(3) {
   opacity: 50%;
 }

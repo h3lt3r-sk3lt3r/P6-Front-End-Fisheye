@@ -19,12 +19,14 @@ class Media {
 
     const mediaTitle = document.createElement("h2");
     mediaTitle.textContent = this.title;
+    mediaTitle.setAttribute("tabindex", "0");
 
     const blockLikes = document.createElement("p");
     blockLikes.setAttribute("class", "likes");
 
     const mediaLikes = document.createElement("p");
     mediaLikes.innerHTML = this.likes;
+    mediaLikes.setAttribute("tabindex", "0");
 
     const heartLikes = document.createElement("i");
     heartLikes.setAttribute("class", "fa-solid fa-heart");
@@ -54,7 +56,9 @@ class ImageMedia extends Media {
     const mediaContent = document.createElement("img");
     mediaContent.setAttribute("src", this.image);
     mediaContent.dataset.id = this.id;
-    mediaContent.setAttribute("class", "media-img")
+    mediaContent.setAttribute("class", "media-img");
+    mediaContent.setAttribute("alt", this.title + ", closeup view");
+    mediaContent.setAttribute("tabindex", "0")
     return mediaContent;
   }
 }
@@ -69,6 +73,8 @@ class VideoMedia extends Media {
     const mediaContent = document.createElement("video");
     mediaContent.setAttribute("src", this.video);
     mediaContent.dataset.id = this.id;
+    mediaContent.setAttribute("aria-label", this.title + ", closeup view");
+    mediaContent.setAttribute("tabindex", "0")
     return mediaContent;
   }
 }

@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/ea037027fe.js" crossorigin="anonymous"></script>
     <title>Fisheye - photographe </title>
   </head>
-  <body>
+  <body id="body">
 
     <header>
       <a href="index.html">
@@ -20,22 +20,22 @@
       <div class="photographer_header"></div>
 
       <div class="sort-button">
-        <label>Trier par</label>
-        <button class="list" id="list">
+        <label tabindex="0" id="sort">Trier par</label>
+        <button class="list" id="list" role="button" aria-haspopup="listbox" aria-expanded="false">
           <div class="list-button">
             <p id="selected"></p>
             <div id="list-arrow">
               <div class="fa-solid fa-chevron-down"></div>
             </div>
           </div>
-          <ul class="list-ul" id="list-ul">
-            <li class="list-li" id="popularity">
+          <ul class="list-ul" id="list-ul" role="listbox" aria-activedescendant="dropdown-menu" aria-selected="true" aria-labelledby="sort">
+            <li class="list-li" id="popularity" tabindex="0" role="option">
               Popularité
             </li>
-            <li class="list-li" id="date">
+            <li class="list-li" id="date" tabindex="0" role="option">
               Date
             </li>
-            <li class="list-li" id="title">
+            <li class="list-li" id="title" tabindex="0" role="option">
               Titre
             </li>
           </ul>
@@ -57,29 +57,29 @@
       </div>
     </div>
 
-    <div id="contact_modal" role="dialog" aria-labelledby="contact_me" aria-modal="true" aria-hidden="true">
+    <div id="contact_modal" role="dialog" aria-labelledby="contact_me" aria-modal="true" aria-hidden="true" tabindex="0">
 			<div class="modal">
 				<header>
-          <h2 id="contact_me"></h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()">
+          <h2 id="contact_me"  tabindex="0"></h2>
         </header>
 				<form>
 					<div>
-						<label for="firstname">Prénom</label>
+						<label for="firstname" tabindex="0">Prénom</label>
 						<input class="contact_input" id="firstname" name="firstname" type="text" aria-label="First name" placeholder="Jane">
-            <label for="lastname">Nom</label>
+            <label for="lastname" tabindex="0">Nom</label>
             <input class="contact_input" id="lastname" name="lastname" type="text" aria-label="Last name" placeholder="Doe">
-            <label for="lastname">Email</label>
+            <label for="lastname" tabindex="0">Email</label>
             <input class="contact_input" id="email" name="email" type="email" aria-label="Email" placeholder="janedoe@email.com">
-            <label for="lastname">Votre message</label>
+            <label for="lastname" tabindex="0">Votre message</label>
             <textarea class="contact_input" id="message" name="message" aria-label="Your message" placeholder="Bonjour, seriez-vous disponible pour échanger au sujet d'une future collaboration ? Merci"></textarea>
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>
+        <img src="assets/icons/close.svg" onclick="closeModal()" tabindex="0" id="contact_close" alt="Close Contact form">
 			</div>
 		</div>
 
-    <div class="totalLikes-bar">
+    <div class="totalLikes-bar" tabindex="0">
       <div class="likes-bar">
         <p class="totalLikes"></p>
         <i class="fa-solid fa-heart"></i>

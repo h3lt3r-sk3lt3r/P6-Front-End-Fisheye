@@ -8,9 +8,14 @@ function photographerFactory(data) {
 
     const link = document.createElement("a");
     link.setAttribute("href", "./photographer.html?id=" + id);
+    link.setAttribute("aria-label", name);
 
     const userPortrait = document.createElement("img");
     userPortrait.setAttribute("src", picture);
+    userPortrait.setAttribute("alt", name);
+
+    const description = document.createElement("div");
+    description.setAttribute("tabindex", "0");
 
     const userName = document.createElement("h2");
     userName.textContent = name;
@@ -27,9 +32,10 @@ function photographerFactory(data) {
     article.appendChild(link);
     link.appendChild(userPortrait);
     link.appendChild(userName);
-    article.appendChild(userLocation);
-    article.appendChild(userTagline);
-    article.appendChild(userPrice);
+    article.appendChild(description);
+    description.appendChild(userLocation);
+    description.appendChild(userTagline);
+    description.appendChild(userPrice);
 
     return article;
   }

@@ -4,12 +4,16 @@ function photographerProfileFactory(data) {
   const picture = `assets/photographers/${portrait}`;
 
   function getUserCardDOM() {
-    infos = document.createElement("div");
+    const infos = document.createElement("div");
     infos.setAttribute("class", "infos")
-    div = document.createElement("div");
+    const div = document.createElement("div");
 
-    const userName = document.createElement("h2");
+    const userName = document.createElement("h1");
     userName.textContent = name;
+    userName.setAttribute("tabindex", "0");
+
+    const description = document.createElement("div");
+    description.setAttribute("tabindex", "0");
 
     const userLocation = document.createElement("p");
     userLocation.textContent = city + ", " + country;
@@ -24,16 +28,19 @@ function photographerProfileFactory(data) {
 
     const userPortrait = document.createElement("img");
     userPortrait.setAttribute("src", picture);
+    userPortrait.setAttribute("alt", name);
+    userPortrait.setAttribute("tabindex", "0");
 
-    totalLikesBar = document.querySelector(".totalLikes-bar");
+    const totalLikesBar = document.querySelector(".totalLikes-bar");
     const userPrice = document.querySelector(".price");
     userPrice.textContent = price + "€ / jour";
     totalLikesBar.appendChild(userPrice);
 
     infos.appendChild(div);
     div.appendChild(userName);
-    div.appendChild(userLocation);
-    div.appendChild(userTagline);
+    div.appendChild(description);
+    description.appendChild(userLocation);
+    description.appendChild(userTagline);
     infos.appendChild(contactButton);
     infos.appendChild(userPortrait);
 
