@@ -30,6 +30,7 @@ class Media {
 
     const heartLikes = document.createElement("i");
     heartLikes.setAttribute("class", "fa-solid fa-heart");
+    heartLikes.setAttribute("tabindex", "0");
 
     media.appendChild(details);
     details.appendChild(mediaTitle);
@@ -80,7 +81,7 @@ class VideoMedia extends Media {
   }
 }
 
-function photographerMediaFactory(data) {
+export default function photographerMediaFactory(data) {
   const { photographerId, title, id, image, video, likes } = data;
 
   if (image) {

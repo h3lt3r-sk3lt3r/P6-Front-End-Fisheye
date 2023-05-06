@@ -65,17 +65,17 @@
 				<form>
 					<div>
 						<label for="firstname" tabindex="0">Prénom</label>
-						<input class="contact_input" id="firstname" name="firstname" type="text" aria-label="First name" placeholder="Jane">
+						<input class="contact_input" id="firstname" name="firstname" type="text" aria-label="Prénom" placeholder="Jane">
             <label for="lastname" tabindex="0">Nom</label>
-            <input class="contact_input" id="lastname" name="lastname" type="text" aria-label="Last name" placeholder="Doe">
+            <input class="contact_input" id="lastname" name="lastname" type="text" aria-label="Nom de famille" placeholder="Doe">
             <label for="lastname" tabindex="0">Email</label>
             <input class="contact_input" id="email" name="email" type="email" aria-label="Email" placeholder="janedoe@email.com">
             <label for="lastname" tabindex="0">Votre message</label>
-            <textarea class="contact_input" id="message" name="message" aria-label="Your message" placeholder="Bonjour, seriez-vous disponible pour échanger au sujet d'une future collaboration ? Merci"></textarea>
+            <textarea class="contact_input" id="message" name="message" aria-label="Votre message" placeholder="Bonjour, seriez-vous disponible pour échanger au sujet d'une future collaboration ? Merci"></textarea>
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>
-        <img src="assets/icons/close.svg" onclick="closeModal()" tabindex="0" id="contact_close" alt="Close Contact form">
+        <img src="assets/icons/close.svg" onclick="closeModal()" tabindex="0" id="contact_close" alt="Fermer le formulaire de contact">
 			</div>
 		</div>
 
@@ -89,9 +89,7 @@
       </div>
     </div>
 
-    <script src="scripts/factories/photographerProfile.js"></script>
-    <script src="scripts/factories/photographerMedia.js"></script>
-    <script src="scripts/pages/photographer.js"></script>
+    <script type="module" src="scripts/pages/photographer.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
 
   </body>

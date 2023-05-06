@@ -1,3 +1,5 @@
+import photographerFactory from "../factories/photographer.js"
+
 let photographerData = [];
 
 async function getPhotographers() {

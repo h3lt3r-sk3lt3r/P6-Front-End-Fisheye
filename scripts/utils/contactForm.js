@@ -4,6 +4,7 @@ const body = document.getElementById("body");
 function displayModal() {
   body.style.position ="fixed";
   modal.style.display = "block";
+  modal.focus();
 }
 
 function closeModal() {
@@ -13,6 +14,12 @@ function closeModal() {
 
 document.getElementById("contact_close").addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
+    closeModal();
+  }
+})
+
+modal.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
     closeModal();
   }
 })

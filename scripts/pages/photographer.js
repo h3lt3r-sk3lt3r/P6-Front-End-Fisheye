@@ -1,4 +1,5 @@
-// Mettre le code JavaScript lié à la page photographer.html
+import photographerProfileFactory from "../factories/photographerProfile.js";
+import photographerMediaFactory from "../factories/photographerMedia.js"
 
 let photographerData = [];
 let photographerMedia = [];
@@ -78,6 +79,7 @@ async function displayMedia() {
       video.dataset.id = element.dataset.id;
       lightboxMedia.appendChild(video);
     }
+
     lightbox.style.display = "flex";
     lightbox.setAttribute("aria-hidden", "false");
     lightbox.focus();
@@ -187,8 +189,14 @@ async function displayMedia() {
     closeLightbox();
   });
 
-  document.getElementById("close").addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
+  // document.getElementById("close").addEventListener("keypress", (e) => {
+  //   if (e.key === "Enter") {
+  //     closeLightbox();
+  //   }
+  // })
+
+  lightbox.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
       closeLightbox();
     }
   })
