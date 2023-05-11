@@ -49,7 +49,7 @@ async function displayMedia() {
     mediaCardDOM.children[0].addEventListener("click", () =>
       clickLightbox(mediaCardDOM.children[0])
     );
-    mediaCardDOM.children[0].addEventListener("keypress", (e) => {
+    mediaCardDOM.children[0].addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
         clickLightbox(mediaCardDOM.children[0]);
       }
@@ -163,19 +163,17 @@ async function displayMedia() {
     previous();
   });
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") {
-      previous();
-    }
-  })
-
   document.getElementById("next").addEventListener("click", () => {
     next();
   });
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowRight") {
+    if (e.key === "ArrowLeft") {
+      previous();
+    } else if (e.key === "ArrowRight") {
       next();
+    } else if (e.key === "Escape") {
+      closeLightbox();
     }
   })
 
@@ -188,18 +186,6 @@ async function displayMedia() {
   document.getElementById("close").addEventListener("click", () => {
     closeLightbox();
   });
-
-  // document.getElementById("close").addEventListener("keypress", (e) => {
-  //   if (e.key === "Enter") {
-  //     closeLightbox();
-  //   }
-  // })
-
-  lightbox.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      closeLightbox();
-    }
-  })
 
   const hearts = document.querySelectorAll(".fa-heart");
 
