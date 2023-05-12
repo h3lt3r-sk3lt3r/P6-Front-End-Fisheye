@@ -155,8 +155,7 @@ async function displayMedia() {
       lightboxMedia.appendChild(videoDisplay);
     }
 
-    lightboxMediaChild =
-      document.querySelector(".lightboxMedia").firstElementChild;
+    // lightboxMediaChild
   };
 
   document.getElementById("previous").addEventListener("click", () => {

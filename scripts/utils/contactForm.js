@@ -1,5 +1,5 @@
 const modal = document.getElementById("contact_modal");
-const body = document.getElementById("body");
+const body = document.getElementsByTagName("body")[0];
 
 function displayModal() {
   body.style.position ="fixed";
