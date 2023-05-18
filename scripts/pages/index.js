@@ -1,29 +1,29 @@
-import photographerFactory from "../factories/photographer.js"
+import photographerFactory from '../factories/photographer.js'
 
-let photographerData = [];
+let photographerData = []
 
-async function getPhotographers() {
-  await fetch("data/photographers.json")
+async function getPhotographers () {
+  await fetch('data/photographers.json')
     .then((res) => res.json())
     .then((data) => (photographerData = data.photographers))
-    .catch((err) => console.log("Erreur : " + err));
+    .catch((err) => console.log('Erreur : ' + err))
 
-    return photographerData;
+  return photographerData
 }
 
-async function displayData() {
-    const photographersSection = document.querySelector(".photographer_section");
+async function displayData () {
+  const photographersSection = document.querySelector('.photographer_section')
 
-    photographerData.forEach((photographer) => {
-        const photographerModel = photographerFactory(photographer);
-        const userCardDOM = photographerModel.getUserCardDOM();
-        photographersSection.appendChild(userCardDOM);
-    });
+  photographerData.forEach((photographer) => {
+    const photographerModel = photographerFactory(photographer)
+    const userCardDOM = photographerModel.getUserCardDOM()
+    photographersSection.appendChild(userCardDOM)
+  })
 };
 
-async function init() {
-    const { photographers } = await getPhotographers();
-    displayData(photographers);
+async function init () {
+  const { photographers } = await getPhotographers()
+  displayData(photographers)
 };
 
-init();
+init()

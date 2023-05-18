@@ -1,7 +1,5 @@
 #contact_modal {
   display: none;
-  /* justify-content: center;
-  align-items: center; */
   background-color: rgba(0, 0, 0, 0.3);
   position: fixed;
   width: 100%;
@@ -221,16 +219,30 @@ form button {
   z-index: 5;
 }
 
-.lightbox .fa-chevron-left {
+/* .lightbox .button_previous {
+  background: none;
+  border: none;
+} */
+
+/* .lightbox .button_next {
+  background: none;
+  border: none;
+} */
+
+.lightbox .button_previous {
   font-size: 50px;
   color: #901C1C;
   cursor: pointer;
+  background: none;
+  border: none;
 }
 
-.lightbox .fa-chevron-right {
+.lightbox .button_next {
   font-size: 50px;
   color: #901C1C;
   cursor: pointer;
+  background: none;
+  border: none;
 }
 
 .lightbox img,
@@ -249,13 +261,24 @@ form button {
   width: 80%;
 }
 
-.lightbox .fa-xmark {
+/* .lightbox .fa-xmark {
   position: absolute;
   top: 15px;
   right: 50px;
   font-size: 50px;
   color: #901C1C;
   cursor: pointer;
+} */
+
+.lightbox .button_close {
+  position: absolute;
+  top: 15px;
+  right: 50px;
+  font-size: 50px;
+  color: #901C1C;
+  cursor: pointer;
+  background: none;
+  border: none;
 }
 
 .lightbox .div-title {

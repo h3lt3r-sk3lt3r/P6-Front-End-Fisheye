@@ -45,13 +45,18 @@
       <div class="photographer_portfolio"></div>
     </main>
 
-    <div class="lightbox" tabindex="0">
-      <i class="fa-solid fa-chevron-left" id="previous"></i>
-      <div class="lightboxMedia">
-
+    <div class="lightbox" tabindex="0" role="dialog" aria-label="Diaporama" aria-modal="true">
+      <button class="button_previous" aria-label="Image précédente" tabindex="0" id="previous">
+        <div class="fa-solid fa-chevron-left"></div>
+      </button>
+      <div class="lightboxMedia" tabindex="0">
       </div>
-      <i class="fa-solid fa-chevron-right" id="next"></i>
-      <i class="fa-solid fa-xmark" id="close"></i>
+      <button class="button_next" aria-label="Image suivante" tabindex="0" id="next">
+        <div class="fa-solid fa-chevron-right"></div>
+      </button>
+      <button class="button_close" aria-label="Fermer" tabindex="0" id="close">
+        <div class="fa-solid fa-xmark"></div>
+      </button>
       <div class="div-title">
         <h2 class="title"></h2>
       </div>
@@ -82,7 +87,7 @@
     <div class="totalLikes-bar" tabindex="0">
       <div class="likes-bar">
         <p class="totalLikes"></p>
-        <i class="fa-solid fa-heart"></i>
+        <div class="fa-solid fa-heart"></div>
       </div>
       <div class="price-bar">
         <p class="price"></p>
