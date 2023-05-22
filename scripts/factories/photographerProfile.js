@@ -17,9 +17,11 @@ export default function photographerProfileFactory (data) {
 
     const userLocation = document.createElement('p')
     userLocation.textContent = city + ', ' + country
+    userLocation.setAttribute('aria-label', 'Ville du photographe ' + city + ', ' + country)
 
     const userTagline = document.createElement('p')
     userTagline.textContent = tagline
+    userTagline.setAttribute('aria-label', 'Citation du photographe ' + tagline)
 
     const contactButton = document.createElement('button')
     contactButton.textContent = 'Contactez-moi'
@@ -28,7 +30,7 @@ export default function photographerProfileFactory (data) {
 
     const userPortrait = document.createElement('img')
     userPortrait.setAttribute('src', picture)
-    userPortrait.setAttribute('alt', name)
+    userPortrait.setAttribute('alt', 'Photo de profil de ' + name)
     userPortrait.setAttribute('tabindex', '0')
 
     const totalLikesBar = document.querySelector('.totalLikes-bar')

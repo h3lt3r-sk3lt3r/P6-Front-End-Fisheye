@@ -62,19 +62,19 @@
       </div>
     </div>
 
-    <div id="contact_modal" role="dialog" aria-labelledby="contact_me" aria-modal="true" aria-hidden="true" tabindex="0">
+    <div id="contact_modal" role="dialog" aria-labelledby="contact_me" aria-modal="true" tabindex="0">
 			<div class="modal">
 				<header>
-          <h2 id="contact_me"  tabindex="0"></h2>
+          <h2 id="contact_me"  tabindex="0" aria-label="Contactez-moi"></h2>
         </header>
 				<form>
 					<div>
-						<label for="firstname" tabindex="0">Prénom</label>
-						<input class="contact_input" id="firstname" name="firstname" type="text" aria-label="Prénom" placeholder="Jane">
+						<label for="firstname" tabindex="0" aria-label="Prénom">Prénom</label>
+						<input class="contact_input" id="firstname" name="firstname" type="text">
             <label for="lastname" tabindex="0">Nom</label>
-            <input class="contact_input" id="lastname" name="lastname" type="text" aria-label="Nom de famille" placeholder="Doe">
+            <input class="contact_input" id="lastname" name="lastname" type="text" aria-label="Nom de famille">
             <label for="email" tabindex="0">Email</label>
-            <input class="contact_input" id="email" name="email" type="email" aria-label="Email" placeholder="janedoe@email.com">
+            <input class="contact_input" id="email" name="email" type="email" aria-label="Email">
             <label for="message" tabindex="0">Votre message</label>
             <textarea class="contact_input" id="message" name="message" aria-label="Votre message" placeholder="Bonjour, seriez-vous disponible pour échanger au sujet d'une future collaboration ? Merci"></textarea>
 					</div>

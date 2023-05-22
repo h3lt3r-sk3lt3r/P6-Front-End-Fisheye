@@ -1,6 +1,7 @@
 const modal = document.getElementById('contact_modal')
 const body = document.getElementsByTagName('body')[0]
 
+// eslint-disable-next-line no-unused-vars
 function displayModal () {
   body.style.position = 'fixed'
   modal.style.display = 'block'

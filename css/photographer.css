@@ -7,7 +7,7 @@
   top: 0;
   left: 0;
   overflow: auto;
-  z-index: 1;
+  z-index: 2;
 }
 
 #contact_me {
@@ -147,6 +147,10 @@ form button {
   margin: 56px 100px;
   grid-auto-rows: minmax(350px, auto);
   row-gap: 16px;
+}
+
+.photographer_portfolio h2 {
+  margin: 0;
 }
 
 .photographer_portfolio .media {

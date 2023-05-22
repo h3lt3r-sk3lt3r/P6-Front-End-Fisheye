@@ -13,7 +13,7 @@ export default function photographerFactory (data) {
 
     const userPortrait = document.createElement('img')
     userPortrait.setAttribute('src', picture)
-    userPortrait.setAttribute('alt', name)
+    userPortrait.setAttribute('alt', 'Photo de profil de ' + name)
 
     const description = document.createElement('div')
     description.setAttribute('tabindex', '0')

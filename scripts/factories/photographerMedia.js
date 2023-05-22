@@ -26,10 +26,12 @@ class Media {
 
     const mediaLikes = document.createElement('p')
     mediaLikes.innerHTML = this.likes
+    mediaLikes.setAttribute('aria-label', 'Nombre de like ' + this.likes)
     mediaLikes.setAttribute('tabindex', '0')
 
     const heartLikes = document.createElement('i')
     heartLikes.setAttribute('class', 'fa-solid fa-heart')
+    heartLikes.setAttribute('aria-label', 'Icône like (coeur)')
     heartLikes.setAttribute('tabindex', '0')
 
     media.appendChild(details)
@@ -58,7 +60,7 @@ class ImageMedia extends Media {
     mediaContent.setAttribute('src', this.image)
     mediaContent.dataset.id = this.id
     mediaContent.setAttribute('class', 'medias-portfolio')
-    mediaContent.setAttribute('alt', this.title + ', closeup view')
+    mediaContent.setAttribute('alt', 'Photo ' + this.title)
     mediaContent.setAttribute('tabindex', '0')
     return mediaContent
   }
@@ -75,14 +77,14 @@ class VideoMedia extends Media {
     mediaContent.setAttribute('src', this.video)
     mediaContent.dataset.id = this.id
     mediaContent.setAttribute('class', 'medias-portfolio')
-    mediaContent.setAttribute('aria-label', this.title + ', closeup view')
+    mediaContent.setAttribute('aria-label', 'Vidéo ' + this.title)
     mediaContent.setAttribute('tabindex', '0')
     return mediaContent
   }
 }
 
 export default function photographerMediaFactory (data) {
-  const { photographerId, title, id, image, video, likes } = data
+  const { image } = data
 
   if (image) {
     return new ImageMedia(data)
